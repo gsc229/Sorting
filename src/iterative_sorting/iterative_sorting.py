@@ -23,17 +23,30 @@ def selection_sort(arr):
     return arr
 
 
-selection_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7])
-
 # TO-DO:  implement the Bubble Sort function below
 
 
 def bubble_sort(arr):
+    print(arr)
 
-    return arr
+    passes = 0
+    _sorted = False
+    if not len(arr):
+        return arr
+    else:
 
+        while not _sorted:
+            for i in range(0, len(arr) - 1):
+                passes += 1
+                if passes == len(arr):
+                    _sorted = True
+                    print(f"SORTED: {arr}")
 
-bubble_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7])
+                if arr[i] > arr[i+1]:
+                    arr[i], arr[i+1] = arr[i+1], arr[i]
+                    print(arr)
+                    passes = 0
+        return arr
 
 
 # STRETCH: implement the Count Sort function below
