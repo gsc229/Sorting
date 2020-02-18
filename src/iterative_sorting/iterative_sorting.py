@@ -10,9 +10,9 @@ def selection_sort(arr):
         for j in range(cur_index + 1, len(arr)):
             if arr[j] < arr[smallest_index]:
                 smallest_index = j
-        arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
 
-    # TO-DO: swap
+        # TO-DO: swap
+        arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
 
     return arr
 
@@ -44,5 +44,30 @@ def bubble_sort(arr):
 
 # STRETCH: implement the Count Sort function below
 def count_sort(arr, maximum=-1):
+    num_range = {}
+    new_arr = []
+    if not maximum == -1:
+        for i in range(0, maximum + 1):
+            num_range[i] = 0
 
-    return arr
+    else:
+        for i in range(0, len(arr) + 1):
+            num_range[i] = 0
+
+    for i in range(0, len(arr)):
+        if arr[i] < 0:
+            return "Error, negative numbers not allowed in Count Sort"
+        num_range[arr[i]] += 1
+        new_arr.append(0)
+    print(num_range)
+
+    for i in range(1, len(num_range)):
+        num_range[i] = num_range[i-1] + num_range[i]
+    print(num_range)
+
+    for i in range(0, len(arr)):
+        new_arr[num_range[arr[i]]-1] = arr[i]
+        num_range[arr[i]] -= 1
+
+    print(new_arr)
+    return new_arr
