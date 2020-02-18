@@ -49,7 +49,6 @@ def count_sort(arr, maximum=-1):
     if not maximum == -1:
         for i in range(0, maximum + 1):
             num_range[i] = 0
-
     else:
         for i in range(0, len(arr) + 1):
             num_range[i] = 0

@@ -33,7 +33,7 @@ def count_sort(arr, maximum=-1):
     return new_arr
 
 
-arr4 = random.sample(range(200), 50)
+arr4 = random.sample(range(2000), 500)
 
-count_sort(arr4, 200)
+count_sort(arr4, 2000)
 # [1,2,3,3]
