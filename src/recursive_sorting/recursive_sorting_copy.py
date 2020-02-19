@@ -7,7 +7,8 @@ def merge(arrA, arrB):
     j = 0  # arrB index
     k = 0  # merged_arr index
     while k <= len(merged_arr) - 1:
-
+        print(
+            f"WHILE i: {i} j: {j} k: {k} arrA: {arrA} arrB: {arrB} merged_arr: {merged_arr}")
         if i < len(arrA) and j < len(arrB):
             if arrA[i] <= arrB[j]:
                 merged_arr[k] = arrA[i]
@@ -30,9 +31,18 @@ def merge(arrA, arrB):
         else:
             break
 
+    print(f"WHILE DONE merged_arr: {merged_arr}")
     return merged_arr
 
 
+# [1,7],[6,10]
+# 1i0 < 6j0 i = 0, j = 0 --> i++, k++
+# [1] i = 1, j = 0, k=1
+# 7i1 > 6j0 i = 1, j = 0 --> j++, k++
+# [1, 6] i = 1, j=1, k=2
+# 7i1 < 10j1 i = 1, j = 1 --> i++, k++
+# [1,6,7] i = 2, j = 1, k=3
+# Nonei2 ? 10j1 i=2, j = 1 -->
 # TO-DO: implement the Merge Sort function below USING RECURSION
 merge_this = [10, 9, 3, 8, 7, 9, 9]
 
@@ -44,7 +54,9 @@ def merge_sort(arr):
         return arr
     middle = len(arr) // 2
     left = merge_sort(arr[:middle])
+    print(f"left: {left}")
     right = merge_sort(arr[middle:])
+    print(f"right: {right}")
     return merge(left, right)
 
 
